@@ -1,42 +1,53 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
-public class TrainConsistManagementApp {
+/**
+ * =====================================================
+ * MAIN CLASS - UseCase6TrainConsistMgmt
+ * =====================================================
+ *
+ * Use Case 6: Map Bogie to Capacity (HashMap)
+ *
+ * Description:
+ * This class associates each bogie with its seating or
+ * load capacity using a key-value mapping structure.
+ *
+ * At this stage, the application:
+ * - Creates a HashMap for bogie-capacity mapping
+ * - Inserts capacity values for each bogie
+ * - Iterates through map entries
+ * - Displays bogie and capacity information
+ *
+ * This maps lookup-based access using HashMap.
+ *
+ * Author: Developer
+ * Version: 6.0
+ */
+
+public class UseCase6TrainConsistMgmt {
 
     public static void main(String[] args) {
 
-        System.out.println("=======================================");
-        System.out.println("UC2 - Add Passenger Bogies to Train");
-        System.out.println("=======================================\n");
+        System.out.println("=====================================");
+        System.out.println(" UC6 - Map Bogie to Capacity (HashMap) ");
+        System.out.println("=====================================\n");
 
-        // Create an ArrayList to hold passenger bogies
-        List<String> passengerBogies = new ArrayList<>();
+        // HashMap stores data in key -> value format
+        Map<String, Integer> capacityMap = new HashMap<>();
 
-        // ADD bogies
-        passengerBogies.add("Sleeper");
-        passengerBogies.add("AC Chair");
-        passengerBogies.add("First Class");
+        // Insert bogie capacities
+        capacityMap.put("First Class", 24);
+        capacityMap.put("Cargo", 120);
+        capacityMap.put("Sleeper", 72);
+        capacityMap.put("AC Chair", 56);
 
-        // Display after adding
-        System.out.println("After Adding Bogies:");
-        System.out.println("Passenger Bogies: " + passengerBogies);
+        // Display bogie capacity details
+        System.out.println("Bogie Capacity Details:");
 
-        // REMOVE a bogie (AC Chair)
-        passengerBogies.remove("AC Chair");
+        for (Map.Entry<String, Integer> entry : capacityMap.entrySet()) {
+            System.out.println(entry.getKey() + " -> " + entry.getValue());
+        }
 
-        // Display after removing
-        System.out.println("\nAfter Removing 'AC Chair':");
-        System.out.println("Passenger Bogies: " + passengerBogies);
-
-        // CHECK if Sleeper exists
-        System.out.println("\nChecking if 'Sleeper' exists:");
-        boolean exists = passengerBogies.contains("Sleeper");
-        System.out.println("Contains Sleeper? : " + exists);
-
-        // FINAL STATE
-        System.out.println("\nFinal Train Passenger Consist:");
-        System.out.println(passengerBogies);
-
-        System.out.println("\nUC2 operations completed successfully...");
+        System.out.println("\nUC6 bogie-capacity mapping completed...");
     }
 }
